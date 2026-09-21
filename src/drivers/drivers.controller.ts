@@ -19,6 +19,7 @@ import {
   ApiResponse,
   ApiBearerAuth,
 } from '@nestjs/swagger';
+import { IsObject, Max, MaxLength, Min, MinLength } from 'class-validator';
 import { DriversService } from './drivers.service';
 import { CreateDriverDto, UpdateDriverDto, DriverDto, DriverListQueryDto } from './dto/drivers.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';

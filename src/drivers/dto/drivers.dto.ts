@@ -17,38 +17,38 @@ import { Type, Transform } from 'class-transformer';
 export class VanInfoDto {
   @ApiProperty({ description: 'Van UUID', example: '550e8400-e29b-41d4-a716-446655440000' })
   @IsUUID()
-  id: string;
+  id!: string;
 
   @ApiProperty({ description: 'Van name', example: 'Van 1 - Route A' })
   @IsString()
-  name: string;
+  name!: string;
 
   @ApiProperty({ description: 'Plate number', example: 'ABC-1234' })
   @IsString()
-  plateNumber: string;
+  plateNumber!: string;
 }
 
 export class CreateDriverDto {
   @ApiProperty({ description: 'Driver email', example: 'driver@school.edu', required: true })
   @IsEmail()
-  email: string;
+  email!: string;
 
   @ApiProperty({ description: 'Driver password', example: 'SecurePass123!', required: true, minLength: 8 })
   @IsString()
   @MinLength(8)
-  password: string;
+  password!: string;
 
   @ApiProperty({ description: 'First name', example: 'John', required: true })
   @IsString()
   @MinLength(1)
   @MaxLength(100)
-  firstName: string;
+  firstName!: string;
 
   @ApiProperty({ description: 'Last name', example: 'Smith', required: true })
   @IsString()
   @MinLength(1)
   @MaxLength(100)
-  lastName: string;
+  lastName!: string;
 
   @ApiPropertyOptional({ description: 'Phone number', example: '+15551234567' })
   @IsOptional()
@@ -105,27 +105,27 @@ export class UpdateDriverDto {
 export class DriverDto {
   @ApiProperty({ description: 'Driver UUID', example: '550e8400-e29b-41d4-a716-446655440000' })
   @IsUUID()
-  id: string;
+  id!: string;
 
   @ApiProperty({ description: 'School UUID', example: '550e8400-e29b-41d4-a716-446655440000' })
   @IsUUID()
-  schoolId: string;
+  schoolId!: string;
 
   @ApiProperty({ description: 'Email', example: 'driver@school.edu' })
   @IsString()
-  email: string;
+  email!: string;
 
   @ApiProperty({ description: 'First name', example: 'John' })
   @IsString()
-  firstName: string;
+  firstName!: string;
 
   @ApiProperty({ description: 'Last name', example: 'Smith' })
   @IsString()
-  lastName: string;
+  lastName!: string;
 
   @ApiProperty({ description: 'Full name', example: 'John Smith' })
   @IsString()
-  fullName: string;
+  fullName!: string;
 
   @ApiPropertyOptional({ description: 'Phone', example: '+15551234567' })
   @IsOptional()
@@ -144,11 +144,11 @@ export class DriverDto {
 
   @ApiProperty({ description: 'Role', example: 'DRIVER' })
   @IsString()
-  role: string;
+  role!: string;
 
   @ApiProperty({ description: 'Active status', example: true })
   @IsBoolean()
-  isActive: boolean;
+  isActive!: boolean;
 
   @ApiPropertyOptional({ description: 'Assigned van', type: () => VanInfoDto })
   @IsOptional()
@@ -157,11 +157,11 @@ export class DriverDto {
 
   @ApiProperty({ description: 'Created timestamp', format: 'date-time' })
   @IsString()
-  createdAt: string;
+  createdAt!: string;
 
   @ApiProperty({ description: 'Updated timestamp', format: 'date-time' })
   @IsString()
-  updatedAt: string;
+  updatedAt!: string;
 }
 
 export class DriverListQueryDto {
@@ -185,7 +185,7 @@ export class DriverListQueryDto {
   @Type(() => Number)
   @IsInt()
   @Min(0)
-  skip?: number = 0;
+  skip: number = 0;
 
   @ApiPropertyOptional({ description: 'Number of records to take', example: 20, minimum: 1, maximum: 100 })
   @IsOptional()
@@ -193,5 +193,5 @@ export class DriverListQueryDto {
   @IsInt()
   @Min(1)
   @Max(100)
-  take?: number = 20;
+  take: number = 20;
 }
