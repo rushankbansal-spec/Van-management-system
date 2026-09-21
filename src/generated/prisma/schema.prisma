@@ -1,0 +1,422 @@
+// For more information, see https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["metrics"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// Multi-tenant School Van Tracking System
+// All tables (except schools) have school_id
+// for tenant isolation
+// ============================================
+
+enum Role {
+  ADMIN
+  DRIVER
+  PARENT
+}
+
+enum TripStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  SOS_ACTIVE
+}
+
+enum AttendanceStatus {
+  PENDING
+  PICKED_UP
+  DROPPED_OFF
+  ABSENT
+}
+
+model School {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  code      String   @unique @db.VarChar(50)
+  address   String?
+  phone     String?
+  email     String?
+  timezone  String   @default("UTC")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz
+  updatedAt DateTime @updatedAt @db.Timestamptz
+
+  // Relations
+  users      User[]      @relation("SchoolUsers")
+  vans       Van[]       @relation("SchoolVans")
+  students   Student[]
+  routes     Route[]
+  trips      Trip[]
+  pickupLogs PickupLog[]
+  alerts     Alert[]
+  Message    Message[]
+
+  @@index([code])
+  @@map("schools")
+}
+
+model User {
+  id           String    @id @default(uuid()) @db.Uuid
+  schoolId     String    @db.Uuid
+  email        String    @unique @db.VarChar(255)
+  passwordHash String // Never return this in responses
+  firstName    String    @db.VarChar(100)
+  lastName     String    @db.VarChar(100)
+  phone        String?   @db.VarChar(20)
+  role         Role      @default(PARENT)
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime? @db.Timestamptz
+  createdAt    DateTime  @default(now()) @db.Timestamptz
+  updatedAt    DateTime  @updatedAt @db.Timestamptz
+  deletedAt    DateTime? @db.Timestamptz // Soft delete
+
+  // Relations
+  school           School    @relation("SchoolUsers", fields: [schoolId], references: [id], onDelete: Restrict)
+  assignedVans     Van[]     @relation("VanDrivers")
+  children         Student[] @relation("StudentParents")
+  sentMessages     Message[] @relation("MessageSender")
+  receivedMessages Message[] @relation("MessageReceiver")
+
+  // 👉 ADD THESE TWO LINES:
+  driverAlerts Alert[]        @relation("DriverAlerts")
+  userAlerts   Alert[]        @relation("UserAlerts")
+  Trip         Trip[]
+  RefreshToken RefreshToken[]
+
+  @@index([schoolId, email])
+  @@index([schoolId, role])
+  @@index([schoolId, isActive])
+}
+
+model Van {
+  id               String    @id @default(uuid()) @db.Uuid
+  schoolId         String    @db.Uuid
+  name             String    @db.VarChar(100)
+  plateNumber      String    @unique @db.VarChar(20)
+  capacity         Int       @default(15)
+  make             String?   @db.VarChar(50)
+  model            String?   @db.VarChar(50)
+  year             Int?
+  color            String?
+  isActive         Boolean   @default(true)
+  currentLatitude  Float?    @db.Real
+  currentLongitude Float?    @db.Real
+  currentSpeed     Int? // km/h
+  currentHeading   Int? // degrees 0-360
+  lastGpsUpdate    DateTime? @db.Timestamptz
+  createdAt        DateTime  @default(now()) @db.Timestamptz
+  updatedAt        DateTime  @updatedAt @db.Timestamptz
+  deletedAt        DateTime? @db.Timestamptz
+
+  // Relations
+  school           School     @relation("SchoolVans", fields: [schoolId], references: [id], onDelete: Restrict)
+  driver           User?      @relation("VanDrivers", fields: [driverId], references: [id])
+  driverId         String?    @db.Uuid
+  assignedStudents Student[]  @relation("AssignedStudents")
+  trips            Trip[]
+  VanRoute         VanRoute[]
+  Alert            Alert[]
+
+  @@unique([schoolId, plateNumber])
+  @@index([schoolId, id])
+  @@index([schoolId, isActive])
+  @@index([schoolId, driverId])
+  @@index([schoolId, currentLatitude, currentLongitude]) // For geo-queries
+  @@map("vans")
+}
+
+model Student {
+  id                    String    @id @default(uuid()) @db.Uuid
+  schoolId              String    @db.Uuid
+  firstName             String    @db.VarChar(100)
+  lastName              String    @db.VarChar(100)
+  dateOfBirth           DateTime? @db.Date
+  gender                String?   @db.VarChar(20)
+  parentId              String    @db.Uuid
+  vanId                 String?   @db.Uuid
+  emergencyContactName  String?   @db.VarChar(200)
+  emergencyContactPhone String?   @db.VarChar(20)
+  medicalInfo           String? // allergies, conditions - sensitive
+  photoUrl              String?   @db.Text
+  isActive              Boolean   @default(true)
+  createdAt             DateTime  @default(now()) @db.Timestamptz
+  updatedAt             DateTime  @updatedAt @db.Timestamptz
+  deletedAt             DateTime? @db.Timestamptz
+
+  // Relations
+  school     School      @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  parent     User        @relation("StudentParents", fields: [parentId], references: [id], onDelete: Restrict)
+  currentVan Van?        @relation("AssignedStudents", fields: [vanId], references: [id])
+  pickupLogs PickupLog[]
+  Alert      Alert[]
+
+  @@index([schoolId, id])
+  @@index([schoolId, vanId])
+  @@index([schoolId, parentId])
+  @@index([schoolId, isActive])
+  @@map("students")
+}
+
+model Route {
+  id          String    @id @default(uuid()) @db.Uuid
+  schoolId    String    @db.Uuid
+  name        String    @db.VarChar(200)
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now()) @db.Timestamptz
+  updatedAt   DateTime  @updatedAt @db.Timestamptz
+  deletedAt   DateTime? @db.Timestamptz
+
+  // Relations
+  school       School      @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  stops        RouteStop[]
+  assignedVans VanRoute[]
+  Trip         Trip[]
+
+  @@index([schoolId, id])
+  @@index([schoolId, isActive])
+  @@map("routes")
+}
+
+model RouteStop {
+  id               String    @id @default(uuid()) @db.Uuid
+  routeId          String    @db.Uuid
+  stopOrder        Int // Order of stop along route
+  name             String    @db.VarChar(200)
+  latitude         Float     @db.Real
+  longitude        Float     @db.Real
+  address          String?   @db.Text
+  estimatedArrival Int? // time of day in minutes from midnight
+  createdAt        DateTime  @default(now()) @db.Timestamptz
+  updatedAt        DateTime  @updatedAt @db.Timestamptz
+  deletedAt        DateTime? @db.Timestamptz
+
+  // Relations
+  route Route @relation(fields: [routeId], references: [id], onDelete: Cascade)
+
+  @@index([routeId, stopOrder])
+  @@map("route_stops")
+}
+
+model VanRoute {
+  id        String   @id @default(uuid()) @db.Uuid
+  vanId     String   @db.Uuid
+  routeId   String   @db.Uuid
+  isPrimary Boolean  @default(false) // Primary route for this van
+  createdAt DateTime @default(now()) @db.Timestamptz
+  updatedAt DateTime @updatedAt @db.Timestamptz
+
+  van   Van   @relation(fields: [vanId], references: [id], onDelete: Cascade)
+  route Route @relation(fields: [routeId], references: [id], onDelete: Cascade)
+
+  @@unique([vanId, routeId])
+  @@map("van_routes")
+}
+
+model Trip {
+  id       String  @id @default(uuid()) @db.Uuid
+  schoolId String  @db.Uuid
+  vanId    String  @db.Uuid
+  routeId  String? @db.Uuid
+  driverId String  @db.Uuid
+
+  tripType                String     @default("PICKUP") // PICKUP or DROP
+  status                  TripStatus @default(NOT_STARTED)
+  scheduledStart          DateTime   @db.Timestamptz
+  actualStart             DateTime?  @db.Timestamptz
+  actualEnd               DateTime?  @db.Timestamptz
+  expectedDurationMinutes Int? // Expected trip duration
+
+  startLatitude  Float? @db.Real
+  startLongitude Float? @db.Real
+  endLatitude    Float? @db.Real
+  endLongitude   Float? @db.Real
+
+  // SOS
+  sosActivated   Boolean   @default(false)
+  sosActivatedAt DateTime? @db.Timestamptz
+  sosResolvedAt  DateTime? @db.Timestamptz
+  sosReason      String?   @db.Text
+
+  notes String? @db.Text
+
+  createdAt DateTime  @default(now()) @db.Timestamptz
+  updatedAt DateTime  @updatedAt @db.Timestamptz
+  deletedAt DateTime? @db.Timestamptz
+
+  // Relations
+  school          School         @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  van             Van            @relation(fields: [vanId], references: [id], onDelete: Restrict)
+  route           Route?         @relation(fields: [routeId], references: [id])
+  driver          User           @relation(fields: [driverId], references: [id], onDelete: Restrict)
+  pickupLogs      PickupLog[]
+  locationUpdates TripLocation[]
+  alerts          Alert[]
+
+  @@index([schoolId, id])
+  @@index([schoolId, vanId])
+  @@index([schoolId, driverId])
+  @@index([schoolId, status])
+  @@index([schoolId, scheduledStart])
+  @@index([schoolId, actualStart])
+  @@index([vanId, scheduledStart])
+  @@map("trips")
+}
+
+model TripLocation {
+  id         String   @id @default(uuid()) @db.Uuid
+  tripId     String   @db.Uuid
+  latitude   Float    @db.Real
+  longitude  Float    @db.Real
+  speed      Int? // km/h
+  heading    Int? // degrees 0-360
+  accuracy   Float? // meters
+  recordedAt DateTime @default(now()) @db.Timestamptz
+
+  // Relations
+  trip Trip @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@index([tripId, recordedAt])
+  @@index([tripId])
+  @@map("trip_locations")
+}
+
+model PickupLog {
+  id        String @id @default(uuid()) @db.Uuid
+  schoolId  String @db.Uuid
+  tripId    String @db.Uuid
+  studentId String @db.Uuid
+
+  action AttendanceStatus @default(PENDING)
+  // PICKED_UP, DROPPED_OFF, ABSENT
+
+  // Idempotency
+  idempotencyKey String?  @unique @db.VarChar(100)
+  actionTakenAt  DateTime @default(now()) @db.Timestamptz
+  latitude       Float?   @db.Real
+  longitude      Float?   @db.Real
+  verifiedBy     String?  @db.Uuid // Driver ID who verified
+  notes          String?  @db.Text
+
+  createdAt DateTime  @default(now()) @db.Timestamptz
+  updatedAt DateTime  @updatedAt @db.Timestamptz
+  deletedAt DateTime? @db.Timestamptz
+
+  // Relations
+  school  School  @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  trip    Trip    @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([schoolId, tripId, studentId, actionTakenAt]) // Prevent duplicate entries
+  @@index([schoolId, id])
+  @@index([schoolId, tripId])
+  @@index([schoolId, studentId])
+  @@index([idempotencyKey])
+  @@index([schoolId, tripId, action])
+  @@map("pickup_logs")
+}
+
+model Alert {
+  id       String @id @default(uuid()) @db.Uuid
+  schoolId String @db.Uuid
+  type     String @db.VarChar(50) // SOS, DELAY, ABSENCE, CUSTOM
+  severity String @default("MEDIUM") // LOW, MEDIUM, HIGH, CRITICAL
+
+  // Polymorphic target
+  vanId     String? @db.Uuid
+  tripId    String? @db.Uuid
+  studentId String? @db.Uuid
+  driverId  String? @db.Uuid
+  userId    String? @db.Uuid // Admin/Parent who received
+
+  title   String @db.VarChar(200)
+  message String @db.Text
+  data    Json? // Additional structured data
+
+  isRead Boolean   @default(false)
+  readAt DateTime? @db.Timestamptz
+
+  createdAt DateTime  @default(now()) @db.Timestamptz
+  updatedAt DateTime  @updatedAt @db.Timestamptz
+  deletedAt DateTime? @db.Timestamptz
+
+  // Relations
+  school  School   @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  van     Van?     @relation(fields: [vanId], references: [id])
+  trip    Trip?    @relation(fields: [tripId], references: [id])
+  student Student? @relation(fields: [studentId], references: [id])
+  driver  User?    @relation("DriverAlerts", fields: [driverId], references: [id])
+  user    User?    @relation("UserAlerts", fields: [userId], references: [id])
+
+  @@index([schoolId, id])
+  @@index([schoolId, type])
+  @@index([schoolId, severity])
+  @@index([schoolId, isRead])
+  @@index([schoolId, createdAt])
+  @@index([schoolId, vanId])
+  @@index([schoolId, tripId])
+  @@map("alerts")
+}
+
+model Message {
+  id          String    @id @default(uuid()) @db.Uuid
+  schoolId    String    @db.Uuid
+  senderId    String    @db.Uuid
+  receiverId  String    @db.Uuid
+  messageType String    @default("TEXT") // TEXT, PICKUP_CONFIRMATION, DROP_CONFIRMATION
+  content     String    @db.Text
+  isRead      Boolean   @default(false)
+  readAt      DateTime? @db.Timestamptz
+  createdAt   DateTime  @default(now()) @db.Timestamptz
+  updatedAt   DateTime  @updatedAt @db.Timestamptz
+  deletedAt   DateTime? @db.Timestamptz // Soft delete for sender/receiver
+
+  // Relations
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Restrict)
+  sender   User   @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver User   @relation("MessageReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@index([schoolId, id])
+  @@index([schoolId, senderId])
+  @@index([schoolId, receiverId])
+  @@index([schoolId, isRead])
+  @@index([schoolId, createdAt])
+  @@map("messages")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @db.Uuid
+  schoolId  String    @db.Uuid
+  token     String    @unique @db.VarChar(500)
+  expiresAt DateTime  @db.Timestamptz
+  usedAt    DateTime? @db.Timestamptz
+  revokedAt DateTime? @db.Timestamptz
+  ipAddress String?   @db.VarChar(45)
+  userAgent String?   @db.Text
+  createdAt DateTime  @default(now()) @db.Timestamptz
+  updatedAt DateTime  @updatedAt @db.Timestamptz
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, schoolId])
+  @@index([token])
+  @@index([userId, expiresAt])
+  @@map("refresh_tokens")
+}
+
+// ============================================
+// Deployment instructions:
+// 1. npx prisma migrate dev --name init
+// 2. npx prisma generate
+// ============================================

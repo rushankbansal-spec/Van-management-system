@@ -1,0 +1,1558 @@
+
+> school-van-tracker@1.0.0 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m7:44:48 AM[0m] Starting compilation in watch mode...
+
+[96msrc/alerts/alerts.controller.ts[0m:[93m162[0m:[93m11[0m - [91merror[0m[90m TS2339: [0mProperty 'userId' does not exist on type 'AlertListQueryDto'.
+
+[7m162[0m     query.userId = user.id;
+[7m   [0m [91m          ~~~~~~[0m
+
+[96msrc/alerts/alerts.service.ts[0m:[93m30[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'Record<string, any> | null' is not assignable to type 'NullableJsonNullValueInput | InputJsonValue | undefined'.
+  Type 'null' is not assignable to type 'NullableJsonNullValueInput | InputJsonValue | undefined'.
+
+[7m30[0m         data: createAlertDto.data || null,
+[7m  [0m [91m        ~~~~[0m
+
+  [96msrc/generated/prisma/index.d.ts[0m:[93m19814[0m:[93m5[0m
+    [7m19814[0m     data?: NullableJsonNullValueInput | InputJsonValue
+    [7m     [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '(Without<AlertCreateInput, AlertUncheckedCreateInput> & AlertUncheckedCreateInput) | (Without<...> & AlertCreateInput)'
+
+[96msrc/auth/dto/auth.dto.ts[0m:[93m140[0m:[93m65[0m - [91merror[0m[90m TS2449: [0mClass 'UserDto' used before its declaration.
+
+[7m140[0m   @ApiProperty({ description: 'User profile information', type: UserDto })
+[7m   [0m [91m                                                                ~~~~~~~[0m
+
+  [96msrc/auth/dto/auth.dto.ts[0m:[93m148[0m:[93m14[0m
+    [7m148[0m export class UserDto {
+    [7m   [0m [96m             ~~~~~~~[0m
+    'UserDto' is declared here.
+
+[96msrc/auth/services/auth.service.ts[0m:[93m5[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '@/prisma/prisma.service' or its corresponding type declarations.
+
+[7m5[0m import { PrismaService } from '@/prisma/prisma.service';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/services/auth.service.ts[0m:[93m6[0m:[93m30[0m - [91merror[0m[90m TS2307: [0mCannot find module '@/redis/redis.service' or its corresponding type declarations.
+
+[7m6[0m import { RedisService } from '@/redis/redis.service';
+[7m [0m [91m                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/services/auth.service.ts[0m:[93m404[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m404[0m       aud: this.config.get('JWT_AUDIENCE'),
+[7m   [0m [91m      ~~~[0m
+
+  [96msrc/common/interfaces/auth.interface.ts[0m:[93m32[0m:[93m3[0m
+    [7m32[0m   aud: string;              // Audience
+    [7m  [0m [96m  ~~~[0m
+    The expected type comes from property 'aud' which is declared here on type 'JwtPayload'
+
+[96msrc/auth/services/auth.service.ts[0m:[93m405[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m405[0m       iss: this.config.get('JWT_ISSUER'),
+[7m   [0m [91m      ~~~[0m
+
+  [96msrc/common/interfaces/auth.interface.ts[0m:[93m33[0m:[93m3[0m
+    [7m33[0m   iss: string;              // Issuer
+    [7m  [0m [96m  ~~~[0m
+    The expected type comes from property 'iss' which is declared here on type 'JwtPayload'
+
+[96msrc/auth/services/auth.service.ts[0m:[93m416[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m416[0m       aud: this.config.get('JWT_AUDIENCE'),
+[7m   [0m [91m      ~~~[0m
+
+  [96msrc/common/interfaces/auth.interface.ts[0m:[93m46[0m:[93m3[0m
+    [7m46[0m   aud: string;              // Audience
+    [7m  [0m [96m  ~~~[0m
+    The expected type comes from property 'aud' which is declared here on type 'RefreshTokenPayload'
+
+[96msrc/auth/services/auth.service.ts[0m:[93m417[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m417[0m       iss: this.config.get('JWT_ISSUER'),
+[7m   [0m [91m      ~~~[0m
+
+  [96msrc/common/interfaces/auth.interface.ts[0m:[93m47[0m:[93m3[0m
+    [7m47[0m   iss: string;              // Issuer
+    [7m  [0m [96m  ~~~[0m
+    The expected type comes from property 'iss' which is declared here on type 'RefreshTokenPayload'
+
+[96msrc/auth/services/auth.service.ts[0m:[93m434[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'tokenType' does not exist in type '{ accessToken: string; refreshToken: string; expiresIn: number; }'.
+
+[7m434[0m       tokenType: 'Bearer',
+[7m   [0m [91m      ~~~~~~~~~[0m
+
+[96msrc/auth/services/auth.service.ts[0m:[93m491[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'tokenType' does not exist in type 'UserDto'.
+
+[7m491[0m       tokenType: 'Bearer',
+[7m   [0m [91m      ~~~~~~~~~[0m
+
+[96msrc/auth/strategies/jwt.strategy.ts[0m:[93m52[0m:[93m11[0m - [91merror[0m[90m TS7022: [0m'user' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+
+[7m52[0m     const user = await this.prisma.user.findUnique({
+[7m  [0m [91m          ~~~~[0m
+
+[96msrc/auth/strategies/jwt.strategy.ts[0m:[93m69[0m:[93m19[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'user' used before its declaration.
+
+[7m69[0m         children: user.role === 'PARENT' ? {
+[7m  [0m [91m                  ~~~~[0m
+
+  [96msrc/auth/strategies/jwt.strategy.ts[0m:[93m52[0m:[93m11[0m
+    [7m52[0m     const user = await this.prisma.user.findUnique({
+    [7m  [0m [96m          ~~~~[0m
+    'user' is declared here.
+
+[96msrc/auth/strategies/jwt.strategy.ts[0m:[93m74[0m:[93m23[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'user' used before its declaration.
+
+[7m74[0m         assignedVans: user.role === 'DRIVER' ? {
+[7m  [0m [91m                      ~~~~[0m
+
+  [96msrc/auth/strategies/jwt.strategy.ts[0m:[93m52[0m:[93m11[0m
+    [7m52[0m     const user = await this.prisma.user.findUnique({
+    [7m  [0m [96m          ~~~~[0m
+    'user' is declared here.
+
+[96msrc/common/logging/logger.ts[0m:[93m10[0m:[93m48[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Logger'.
+
+[7m10[0m export function createLogger(context: string): Logger {
+[7m  [0m [91m                                               ~~~~~~[0m
+
+[96msrc/common/logging/logger.ts[0m:[93m237[0m:[93m1[0m - [91merror[0m[90m TS2304: [0mCannot find name 'LOGFDBK'.
+
+[7m237[0m LOGFDBK
+[7m   [0m [91m~~~~~~~[0m
+
+[96msrc/common/middleware/tenant-prisma.middleware.ts[0m:[93m4[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '../database/prisma/prisma.service' or its corresponding type declarations.
+
+[7m4[0m import { PrismaService } from '../database/prisma/prisma.service';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/middleware/tenant.middleware.ts[0m:[93m5[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '../database/prisma/prisma.service' or its corresponding type declarations.
+
+[7m5[0m import { PrismaService } from '../database/prisma/prisma.service';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m3[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '../database/prisma/prisma.service' or its corresponding type declarations.
+
+[7m3[0m import { PrismaService } from '../database/prisma/prisma.service';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m85[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaClientKnownRequestError'.
+
+[7m85[0m       throw new PrismaClientKnownRequestError(
+[7m  [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m141[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaClientKnownRequestError'.
+
+[7m141[0m       throw new PrismaClientKnownRequestError(
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m199[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaClientKnownRequestError'.
+
+[7m199[0m       throw new PrismaClientKnownRequestError(
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m261[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaClientKnownRequestError'.
+
+[7m261[0m       throw new PrismaClientKnownRequestError(
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m350[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaClientKnownRequestError'.
+
+[7m350[0m       throw new PrismaClientKnownRequestError(
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m442[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaClientKnownRequestError'.
+
+[7m442[0m       throw new PrismaClientKnownRequestError(
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/common/services/tenant.service.ts[0m:[93m450[0m:[93m14[0m - [91merror[0m[90m TS7006: [0mParameter 'tx' implicitly has an 'any' type.
+
+[7m450[0m       async (tx) => {
+[7m   [0m [91m             ~~[0m
+
+[96msrc/common/utils/swagger.setup.ts[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@nestjs/swagger"' has no exported member 'SwaggerDocument'.
+
+[7m2[0m import { SwaggerDocument } from '@nestjs/swagger';
+[7m [0m [91m         ~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/config.module.ts[0m:[93m12[0m:[93m14[0m - [91merror[0m[90m TS2322: [0mType '(config: Record<string, any>) => Record<string, any>' is not assignable to type 'ConfigFactory | Promise<ConfigFactory>'.
+  Type '(config: Record<string, any>) => Record<string, any>' is not assignable to type 'ConfigFactory'.
+    Target signature provides too few arguments. Expected 1 or more, but got 0.
+
+[7m12[0m       load: [validateEnv],
+[7m  [0m [91m             ~~~~~~~~~~~[0m
+
+[96msrc/config/database.ts[0m:[93m1[0m:[93m22[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose from 'mongoose';
+[7m [0m [91m                     ~~~~~~~~~~[0m
+
+[96msrc/config/database.ts[0m:[93m21[0m:[93m34[0m - [91merror[0m[90m TS7006: [0mParameter 'err' implicitly has an 'any' type.
+
+[7m21[0m mongoose.connection.on('error', (err) => {
+[7m  [0m [91m                                 ~~~[0m
+
+[96msrc/config/environment.ts[0m:[93m1[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m1[0m import dotenv from 'dotenv';
+[7m [0m [91m                   ~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m45[0m:[93m18[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m45[0m   port: parseInt(process.env.PORT, 10) || 3000,
+[7m  [0m [91m                 ~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m56[0m:[93m64[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'string | undefined' and 'boolean' have no overlap.
+
+[7m56[0m   enableWebSocket: process.env.ENABLE_WEB_SOCKET === 'true' || process.env.ENABLE_WEB_SOCKET === true,
+[7m  [0m [91m                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m57[0m:[93m80[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'string | undefined' and 'boolean' have no overlap.
+
+[7m57[0m   enablePushNotifications: process.env.ENABLE_PUSH_NOTIFICATIONS === 'true' || process.env.ENABLE_PUSH_NOTIFICATIONS === true,
+[7m  [0m [91m                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m58[0m:[93m64[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'string | undefined' and 'boolean' have no overlap.
+
+[7m58[0m   enableCsvExport: process.env.ENABLE_CSV_EXPORT === 'true' || process.env.ENABLE_CSV_EXPORT === true,
+[7m  [0m [91m                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m59[0m:[93m67[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'string | undefined' and 'boolean' have no overlap.
+
+[7m59[0m   enableIdempotency: process.env.ENABLE_IDEMPOTENCY === 'true' || process.env.ENABLE_IDEMPOTENCY === true,
+[7m  [0m [91m                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m61[0m:[93m63[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'string | undefined' and 'boolean' have no overlap.
+
+[7m61[0m   corsCredentials: process.env.CORS_CREDENTIALS === 'true' || process.env.CORS_CREDENTIALS === true,
+[7m  [0m [91m                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m70[0m:[93m18[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m70[0m   port: parseInt(process.env.REDIS_PORT, 10) || 6379,
+[7m  [0m [91m                 ~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m72[0m:[93m44[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'string | undefined' and 'boolean' have no overlap.
+
+[7m72[0m   tls: process.env.REDIS_TLS === 'true' || process.env.REDIS_TLS === true,
+[7m  [0m [91m                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m85[0m:[93m24[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m85[0m   memoryCost: parseInt(process.env.ARGON2_MEMORY_COST, 10) || 65536,
+[7m  [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m86[0m:[93m22[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m86[0m   timeCost: parseInt(process.env.ARGON2_TIME_COST, 10) || 3,
+[7m  [0m [91m                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m87[0m:[93m25[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m87[0m   parallelism: parseInt(process.env.ARGON2_PARALLELISM, 10) || 4,
+[7m  [0m [91m                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m91[0m:[93m17[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m91[0m   ttl: parseInt(process.env.RATE_LIMIT_TTL, 10) || 60000,
+[7m  [0m [91m                ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m92[0m:[93m29[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m92[0m   maxAuthRequests: parseInt(process.env.RATE_LIMIT_MAX_AUTH_REQUESTS, 10) || 5,
+[7m  [0m [91m                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m93[0m:[93m28[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m93[0m   maxGpsRequests: parseInt(process.env.RATE_LIMIT_MAX_GPS_REQUESTS, 10) || 20,
+[7m  [0m [91m                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m94[0m:[93m24[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m94[0m   maxGeneral: parseInt(process.env.RATE_LIMIT_MAX_GENERAL, 10) || 100,
+[7m  [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m98[0m:[93m32[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m98[0m   locationTtlSeconds: parseInt(process.env.GPS_LOCATION_TTL_SECONDS, 10) || 300,
+[7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m99[0m:[93m23[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m99[0m   batchSize: parseInt(process.env.GPS_BATCH_SIZE, 10) || 100,
+[7m  [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m100[0m:[93m36[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m100[0m   archiveIntervalSeconds: parseInt(process.env.GPS_ARCHIVE_INTERVAL_SECONDS, 10) || 300,
+[7m   [0m [91m                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/config/validators.ts[0m:[93m117[0m:[93m24[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m117[0m   ttlSeconds: parseInt(process.env.IDEMPOTENCY_TTL_SECONDS, 10) || 86400,
+[7m   [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/controllers/achievement.controller.ts[0m:[93m38[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m38[0m       if (req.file && req.file.path) {
+[7m  [0m [91m              ~~~~[0m
+
+[96msrc/controllers/achievement.controller.ts[0m:[93m38[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m38[0m       if (req.file && req.file.path) {
+[7m  [0m [91m                          ~~~~[0m
+
+[96msrc/controllers/achievement.controller.ts[0m:[93m39[0m:[93m29[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m39[0m         data.imageUrl = req.file.path;
+[7m  [0m [91m                            ~~~~[0m
+
+[96msrc/controllers/achievement.controller.ts[0m:[93m58[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m58[0m       if (req.file && req.file.path) {
+[7m  [0m [91m              ~~~~[0m
+
+[96msrc/controllers/achievement.controller.ts[0m:[93m58[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m58[0m       if (req.file && req.file.path) {
+[7m  [0m [91m                          ~~~~[0m
+
+[96msrc/controllers/achievement.controller.ts[0m:[93m59[0m:[93m29[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m59[0m         data.imageUrl = req.file.path;
+[7m  [0m [91m                            ~~~~[0m
+
+[96msrc/controllers/certification.controller.ts[0m:[93m37[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m37[0m       if (req.file && req.file.path) {
+[7m  [0m [91m              ~~~~[0m
+
+[96msrc/controllers/certification.controller.ts[0m:[93m37[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m37[0m       if (req.file && req.file.path) {
+[7m  [0m [91m                          ~~~~[0m
+
+[96msrc/controllers/certification.controller.ts[0m:[93m38[0m:[93m29[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m38[0m         data.imageUrl = req.file.path;
+[7m  [0m [91m                            ~~~~[0m
+
+[96msrc/controllers/certification.controller.ts[0m:[93m57[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m57[0m       if (req.file && req.file.path) {
+[7m  [0m [91m              ~~~~[0m
+
+[96msrc/controllers/certification.controller.ts[0m:[93m57[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m57[0m       if (req.file && req.file.path) {
+[7m  [0m [91m                          ~~~~[0m
+
+[96msrc/controllers/certification.controller.ts[0m:[93m58[0m:[93m29[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m58[0m         data.imageUrl = req.file.path;
+[7m  [0m [91m                            ~~~~[0m
+
+[96msrc/controllers/profile.controller.ts[0m:[93m43[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m43[0m       if (req.file && req.file.path) {
+[7m  [0m [91m              ~~~~[0m
+
+[96msrc/controllers/profile.controller.ts[0m:[93m43[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m43[0m       if (req.file && req.file.path) {
+[7m  [0m [91m                          ~~~~[0m
+
+[96msrc/controllers/profile.controller.ts[0m:[93m44[0m:[93m39[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m44[0m         updateData.profileImage = req.file.path;
+[7m  [0m [91m                                      ~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m124[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m124[0m       if (req.files) {
+[7m   [0m [91m              ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m125[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m125[0m         if (Array.isArray(req.files) && req.files.length > 0) {
+[7m   [0m [91m                              ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m125[0m:[93m45[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m125[0m         if (Array.isArray(req.files) && req.files.length > 0) {
+[7m   [0m [91m                                            ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m126[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m126[0m           const file = req.files[0] as any;
+[7m   [0m [91m                           ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m130[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m130[0m         } else if (typeof req.files === 'object' && !Array.isArray(req.files)) {
+[7m   [0m [91m                              ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m130[0m:[93m72[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m130[0m         } else if (typeof req.files === 'object' && !Array.isArray(req.files)) {
+[7m   [0m [91m                                                                       ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m131[0m:[93m29[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m131[0m           const files = req.files as Record<string, any[]>;
+[7m   [0m [91m                            ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m202[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m202[0m       if (req.files) {
+[7m   [0m [91m              ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m203[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m203[0m         if (Array.isArray(req.files) && req.files.length > 0) {
+[7m   [0m [91m                              ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m203[0m:[93m45[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m203[0m         if (Array.isArray(req.files) && req.files.length > 0) {
+[7m   [0m [91m                                            ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m204[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m204[0m           const file = req.files[0] as any;
+[7m   [0m [91m                           ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m208[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m208[0m         } else if (typeof req.files === 'object' && !Array.isArray(req.files)) {
+[7m   [0m [91m                              ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m208[0m:[93m72[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m208[0m         } else if (typeof req.files === 'object' && !Array.isArray(req.files)) {
+[7m   [0m [91m                                                                       ~~~~~[0m
+
+[96msrc/controllers/project.controller.ts[0m:[93m209[0m:[93m29[0m - [91merror[0m[90m TS2339: [0mProperty 'files' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m209[0m           const files = req.files as Record<string, any[]>;
+[7m   [0m [91m                            ~~~~~[0m
+
+[96msrc/controllers/resume.controller.ts[0m:[93m71[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m71[0m       if (!req.file) {
+[7m  [0m [91m               ~~~~[0m
+
+[96msrc/controllers/resume.controller.ts[0m:[93m75[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m75[0m       const fileUrl = req.file.path;
+[7m  [0m [91m                          ~~~~[0m
+
+[96msrc/controllers/resume.controller.ts[0m:[93m76[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m76[0m       const fileName = req.file.originalname;
+[7m  [0m [91m                           ~~~~[0m
+
+[96msrc/controllers/resume.controller.ts[0m:[93m117[0m:[93m15[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m117[0m       if (req.file) {
+[7m   [0m [91m              ~~~~[0m
+
+[96msrc/controllers/resume.controller.ts[0m:[93m125[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m125[0m         updateData.fileUrl = req.file.path;
+[7m   [0m [91m                                 ~~~~[0m
+
+[96msrc/controllers/resume.controller.ts[0m:[93m126[0m:[93m35[0m - [91merror[0m[90m TS2339: [0mProperty 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+[7m126[0m         updateData.fileName = req.file.originalname;
+[7m   [0m [91m                                  ~~~~[0m
+
+[96msrc/database/prisma/prisma.service.ts[0m:[93m31[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'transactionTimeout' does not exist in type 'Subset<PrismaClientOptions, PrismaClientOptions>'.
+
+[7m31[0m       transactionTimeout: 10000, // 10s max for transactions
+[7m  [0m [91m      ~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/database/prisma/prisma.service.ts[0m:[93m49[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty '$hasConnected' does not exist on type 'PrismaService'.
+
+[7m49[0m     if (this.$hasConnected()) {
+[7m  [0m [91m             ~~~~~~~~~~~~~[0m
+
+[96msrc/database/prisma/prisma.service.ts[0m:[93m78[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'Error'.
+
+[7m78[0m            error.code === '40001' ||
+[7m  [0m [91m                 ~~~~[0m
+
+[96msrc/database/prisma/prisma.service.ts[0m:[93m79[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'Error'.
+
+[7m79[0m            error.code === '40P01') &&
+[7m  [0m [91m                 ~~~~[0m
+
+[96msrc/database/redis/redis.module.ts[0m:[93m25[0m:[93m29[0m - [91merror[0m[90m TS2702: [0m'Redis' only refers to a type, but is being used as a namespace here.
+
+[7m25[0m         const redisOptions: Redis.Options = {
+[7m  [0m [91m                            ~~~~~[0m
+
+[96msrc/database/redis/redis.module.ts[0m:[93m38[0m:[93m11[0m - [91merror[0m[90m TS1117: [0mAn object literal cannot have multiple properties with the same name.
+
+[7m38[0m           maxRetriesPerRequest: 3,
+[7m  [0m [91m          ~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/database/redis/redis.service.ts[0m:[93m143[0m:[93m26[0m - [91merror[0m[90m TS18047: [0m'responses' is possibly 'null'.
+
+[7m143[0m         const response = responses[i];
+[7m   [0m [91m                         ~~~~~~~~~[0m
+
+[96msrc/database/redis/redis.service.ts[0m:[93m145[0m:[93m25[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'Error | null' and 'string' have no overlap.
+
+[7m145[0m         if (response && response[0] === 'ok' && response[1]) {
+[7m   [0m [91m                        ~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/database/redis/redis.service.ts[0m:[93m147[0m:[93m43[0m - [91merror[0m[90m TS2345: [0mArgument of type '{}' is not assignable to parameter of type 'string'.
+
+[7m147[0m             results.set(vanId, JSON.parse(response[1]));
+[7m   [0m [91m                                          ~~~~~~~~~~~[0m
+
+[96msrc/database/redis/redis.service.ts[0m:[93m438[0m:[93m46[0m - [91merror[0m[90m TS2559: [0mType '"sub"' has no properties in common with type 'Partial<RedisOptions>'.
+
+[7m438[0m     const subscriber = this.client.duplicate('sub');
+[7m   [0m [91m                                             ~~~~~[0m
+
+[96msrc/drivers/drivers.controller.ts[0m:[93m169[0m:[93m17[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'licenseNumber' does not exist in type 'UserSelect<DefaultArgs>'.
+
+[7m169[0m                 licenseNumber: true,
+[7m   [0m [91m                ~~~~~~~~~~~~~[0m
+
+[96msrc/drivers/drivers.controller.ts[0m:[93m181[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'currentVan' does not exist on type '{ schoolId: string; vanId: string | null; firstName: string; lastName: string; id: string; isActive: boolean; createdAt: Date; updatedAt: Date; deletedAt: Date | null; dateOfBirth: Date | null; ... 5 more ...; photoUrl: string | null; }'.
+
+[7m181[0m     if (!student || !student.currentVan || !student.currentVan.driver) {
+[7m   [0m [91m                             ~~~~~~~~~~[0m
+
+[96msrc/drivers/drivers.controller.ts[0m:[93m181[0m:[93m53[0m - [91merror[0m[90m TS2339: [0mProperty 'currentVan' does not exist on type '{ schoolId: string; vanId: string | null; firstName: string; lastName: string; id: string; isActive: boolean; createdAt: Date; updatedAt: Date; deletedAt: Date | null; dateOfBirth: Date | null; ... 5 more ...; photoUrl: string | null; }'.
+
+[7m181[0m     if (!student || !student.currentVan || !student.currentVan.driver) {
+[7m   [0m [91m                                                    ~~~~~~~~~~[0m
+
+[96msrc/drivers/drivers.controller.ts[0m:[93m182[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m182[0m       throw new NotFoundException('Student, van, or driver not found');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/drivers/drivers.controller.ts[0m:[93m185[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'currentVan' does not exist on type '{ schoolId: string; vanId: string | null; firstName: string; lastName: string; id: string; isActive: boolean; createdAt: Date; updatedAt: Date; deletedAt: Date | null; dateOfBirth: Date | null; ... 5 more ...; photoUrl: string | null; }'.
+
+[7m185[0m     const driver = student.currentVan.driver;
+[7m   [0m [91m                           ~~~~~~~~~~[0m
+
+[96msrc/drivers/drivers.service.ts[0m:[93m43[0m:[93m70[0m - [91merror[0m[90m TS2769: [0mNo overload matches this call.
+  Overload 1 of 2, '(plain: string | Buffer<ArrayBufferLike>, options: Options & { raw: true; }): Promise<Buffer<ArrayBufferLike>>', gave the following error.
+    Argument of type 'Options' is not assignable to parameter of type 'Options & { raw: true; }'.
+      Type 'Options' is not assignable to type '{ raw: true; }'.
+        Types of property 'raw' are incompatible.
+          Type 'boolean | undefined' is not assignable to type 'true'.
+            Type 'undefined' is not assignable to type 'true'.
+  Overload 2 of 2, '(plain: string | Buffer<ArrayBufferLike>, options?: (Options & { raw?: false | undefined; }) | undefined): Promise<string>', gave the following error.
+    Argument of type 'Options' is not assignable to parameter of type 'Options & { raw?: false | undefined; }'.
+      Type 'Options' is not assignable to type '{ raw?: false | undefined; }'.
+        Types of property 'raw' are incompatible.
+          Type 'boolean | undefined' is not assignable to type 'false | undefined'.
+            Type 'true' is not assignable to type 'false'.
+
+[7m43[0m     const passwordHash = await argon2.hash(createDriverDto.password, this.argon2Options);
+[7m  [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~[0m
+
+
+[96msrc/drivers/drivers.service.ts[0m:[93m150[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'licenseNumber' does not exist in type '(Without<UserUpdateInput, UserUncheckedUpdateInput> & UserUncheckedUpdateInput) | (Without<...> & UserUpdateInput)'.
+
+[7m150[0m         licenseNumber: (updateDriverDto as any).licenseNumber,
+[7m   [0m [91m        ~~~~~~~~~~~~~[0m
+
+  [96msrc/generated/prisma/index.d.ts[0m:[93m4468[0m:[93m5[0m
+    [7m4468[0m     data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: UserSelect<DefaultArgs> | null | undefined; include?: UserInclude<DefaultArgs> | null | undefined; data: (Without<UserUpdateInput, UserUncheckedUpdateInput> & UserUncheckedUpdateInput) | (Without<...> & UserUpdateInput); where: UserWhereUniqueInput; }'
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m13[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m13[0m   @MinLength(8)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m18[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m18[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m19[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m19[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m24[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m24[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m25[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m25[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m48[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m48[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m49[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m49[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m55[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m55[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m56[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m56[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/drivers/dto/drivers.dto.ts[0m:[93m128[0m:[93m61[0m - [91merror[0m[90m TS2449: [0mClass 'VanInfoDto' used before its declaration.
+
+[7m128[0m   @ApiPropertyOptional({ description: 'Assigned van', type: VanInfoDto })
+[7m   [0m [91m                                                            ~~~~~~~~~~[0m
+
+  [96msrc/drivers/dto/drivers.dto.ts[0m:[93m141[0m:[93m14[0m
+    [7m141[0m export class VanInfoDto {
+    [7m   [0m [96m             ~~~~~~~~~~[0m
+    'VanInfoDto' is declared here.
+
+[96msrc/main.ts[0m:[93m14[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./database/redis/redis.module"' has no exported member 'setupRedis'.
+
+[7m14[0m import { setupRedis } from './database/redis/redis.module';
+[7m  [0m [91m         ~~~~~~~~~~[0m
+
+[96msrc/main.ts[0m:[93m15[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./database/prisma/prisma.service"' has no exported member 'setupPrisma'.
+
+[7m15[0m import { setupPrisma } from './database/prisma/prisma.service';
+[7m  [0m [91m         ~~~~~~~~~~~[0m
+
+[96msrc/main.ts[0m:[93m44[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'path' does not exist on type 'IncomingMessage'.
+
+[7m44[0m       return req.path === '/health' || req.path === '/favicon.ico';
+[7m  [0m [91m                 ~~~~[0m
+
+[96msrc/main.ts[0m:[93m44[0m:[93m44[0m - [91merror[0m[90m TS2339: [0mProperty 'path' does not exist on type 'IncomingMessage'.
+
+[7m44[0m       return req.path === '/health' || req.path === '/favicon.ico';
+[7m  [0m [91m                                           ~~~~[0m
+
+[96msrc/main.ts[0m:[93m84[0m:[93m20[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m84[0m         return new BadRequestException({
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/main.ts[0m:[93m141[0m:[93m33[0m - [91merror[0m[90m TS2304: [0mCannot find name 'PrismaService'.
+
+[7m141[0m   const prismaService = app.get(PrismaService);
+[7m   [0m [91m                                ~~~~~~~~~~~~~[0m
+
+[96msrc/main.ts[0m:[93m145[0m:[93m7[0m - [91merror[0m[90m TS2339: [0mProperty 'connectRedis' does not exist on type 'INestApplication<any>'.
+
+[7m145[0m   app.connectRedis = () => redisModule.getRedisClient();
+[7m   [0m [91m      ~~~~~~~~~~~~[0m
+
+[96msrc/main.ts[0m:[93m146[0m:[93m7[0m - [91merror[0m[90m TS2339: [0mProperty 'connectPrisma' does not exist on type 'INestApplication<any>'.
+
+[7m146[0m   app.connectPrisma = () => prismaService;
+[7m   [0m [91m      ~~~~~~~~~~~~~[0m
+
+[96msrc/middleware/rateLimit.middleware.ts[0m:[93m1[0m:[93m23[0m - [91merror[0m[90m TS2307: [0mCannot find module 'express-rate-limit' or its corresponding type declarations.
+
+[7m1[0m import rateLimit from 'express-rate-limit';
+[7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/middleware/rateLimit.middleware.ts[0m:[93m14[0m:[93m18[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m14[0m   keyGenerator: (req) => {
+[7m  [0m [91m                 ~~~[0m
+
+[96msrc/middleware/rateLimit.middleware.ts[0m:[93m29[0m:[93m18[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m29[0m   keyGenerator: (req) => {
+[7m  [0m [91m                 ~~~[0m
+
+[96msrc/middleware/rateLimit.middleware.ts[0m:[93m44[0m:[93m18[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m44[0m   keyGenerator: (req) => {
+[7m  [0m [91m                 ~~~[0m
+
+[96msrc/middleware/rateLimit.middleware.ts[0m:[93m59[0m:[93m18[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m59[0m   keyGenerator: (req) => {
+[7m  [0m [91m                 ~~~[0m
+
+[96msrc/models/Achievement.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Certification.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Contact.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Experience.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Github.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Profile.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Project.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Project.ts[0m:[93m137[0m:[93m37[0m - [91merror[0m[90m TS7006: [0mParameter 'next' implicitly has an 'any' type.
+
+[7m137[0m projectSchema.pre('save', function (next) {
+[7m   [0m [91m                                    ~~~~[0m
+
+[96msrc/models/Resume.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/Skill.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/SocialLink.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import mongoose, { Document, Schema } from 'mongoose';
+[7m [0m [91m                                           ~~~~~~~~~~[0m
+
+[96msrc/models/User.ts[0m:[93m1[0m:[93m48[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m1[0m import { Document, Schema, Model, model } from 'mongoose';
+[7m [0m [91m                                               ~~~~~~~~~~[0m
+
+[96msrc/models/User.ts[0m:[93m46[0m:[93m40[0m - [91merror[0m[90m TS7006: [0mParameter 'next' implicitly has an 'any' type.
+
+[7m46[0m userSchema.pre('save', async function (next) {
+[7m  [0m [91m                                       ~~~~[0m
+
+[96msrc/notifications/push/push-notifications.service.ts[0m:[93m63[0m:[93m14[0m - [91merror[0m[90m TS7053: [0mElement implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ projectId: any; privateKeyId: any; privateKey: any; clientEmail: any; clientId: any; authUri: any; tokenUri: any; authProviderX509CertUrl: any; clientX509CertUrl: any; }'.
+  No index signature with a parameter of type 'string' was found on type '{ projectId: any; privateKeyId: any; privateKey: any; clientEmail: any; clientId: any; authUri: any; tokenUri: any; authProviderX509CertUrl: any; clientX509CertUrl: any; }'.
+
+[7m63[0m         if (!credentials[key]) delete credentials[key];
+[7m  [0m [91m             ~~~~~~~~~~~~~~~~[0m
+
+[96msrc/notifications/push/push-notifications.service.ts[0m:[93m63[0m:[93m39[0m - [91merror[0m[90m TS7053: [0mElement implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ projectId: any; privateKeyId: any; privateKey: any; clientEmail: any; clientId: any; authUri: any; tokenUri: any; authProviderX509CertUrl: any; clientX509CertUrl: any; }'.
+  No index signature with a parameter of type 'string' was found on type '{ projectId: any; privateKeyId: any; privateKey: any; clientEmail: any; clientId: any; authUri: any; tokenUri: any; authProviderX509CertUrl: any; clientX509CertUrl: any; }'.
+
+[7m63[0m         if (!credentials[key]) delete credentials[key];
+[7m  [0m [91m                                      ~~~~~~~~~~~~~~~~[0m
+
+[96msrc/notifications/push/push-notifications.service.ts[0m:[93m155[0m:[93m13[0m - [91merror[0m[90m TS7053: [0mElement implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ token: string | undefined; topic: string | undefined; notification: { title: string; body: string; }; data: { sentAt: string; userId: string; }; android: { priority: string; notification: { clickAction: string; }; }; apns: { ...; }; }'.
+  No index signature with a parameter of type 'string' was found on type '{ token: string | undefined; topic: string | undefined; notification: { title: string; body: string; }; data: { sentAt: string; userId: string; }; android: { priority: string; notification: { clickAction: string; }; }; apns: { ...; }; }'.
+
+[7m155[0m         if (message[key] === undefined) delete message[key];
+[7m   [0m [91m            ~~~~~~~~~~~~[0m
+
+[96msrc/notifications/push/push-notifications.service.ts[0m:[93m155[0m:[93m48[0m - [91merror[0m[90m TS7053: [0mElement implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ token: string | undefined; topic: string | undefined; notification: { title: string; body: string; }; data: { sentAt: string; userId: string; }; android: { priority: string; notification: { clickAction: string; }; }; apns: { ...; }; }'.
+  No index signature with a parameter of type 'string' was found on type '{ token: string | undefined; topic: string | undefined; notification: { title: string; body: string; }; data: { sentAt: string; userId: string; }; android: { priority: string; notification: { clickAction: string; }; }; apns: { ...; }; }'.
+
+[7m155[0m         if (message[key] === undefined) delete message[key];
+[7m   [0m [91m                                               ~~~~~~~~~~~~[0m
+
+[96msrc/rate-limit/rate-limit.service.ts[0m:[93m116[0m:[93m5[0m - [91merror[0m[90m TS2741: [0mProperty ''X-RateLimit-Limit'' is missing in type '{ 'Retry-After'?: string | undefined; 'X-RateLimit-Remaining': string; 'X-RateLimit-Reset': string; }' but required in type '{ 'X-RateLimit-Limit': string; 'X-RateLimit-Remaining': string; 'X-RateLimit-Reset': string; 'Retry-After'?: string | undefined; }'.
+
+[7m116[0m     return {
+[7m   [0m [91m    ~~~~~~[0m
+
+  [96msrc/rate-limit/rate-limit.service.ts[0m:[93m109[0m:[93m5[0m
+    [7m109[0m     'X-RateLimit-Limit': string;
+    [7m   [0m [96m    ~~~~~~~~~~~~~~~~~~~[0m
+    ''X-RateLimit-Limit'' is declared here.
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m9[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m9[0m   @MinLength(1)
+[7m [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m10[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m10[0m   @MaxLength(200)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m18[0m:[93m70[0m - [91merror[0m[90m TS2449: [0mClass 'CreateRouteStopDto' used before its declaration.
+
+[7m18[0m   @ApiPropertyOptional({ description: 'Route stops in order', type: [CreateRouteStopDto] })
+[7m  [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/routes/dto/routes.dto.ts[0m:[93m26[0m:[93m14[0m
+    [7m26[0m export class CreateRouteStopDto {
+    [7m  [0m [96m             ~~~~~~~~~~~~~~~~~~[0m
+    'CreateRouteStopDto' is declared here.
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m29[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m29[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m30[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m30[0m   @MaxLength(200)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m49[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Min'.
+
+[7m49[0m   @Min(0)
+[7m  [0m [91m   ~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m50[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Max'.
+
+[7m50[0m   @Max(1439)
+[7m  [0m [91m   ~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m58[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m58[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m59[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m59[0m   @MaxLength(200)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/routes/dto/routes.dto.ts[0m:[93m102[0m:[93m53[0m - [91merror[0m[90m TS2449: [0mClass 'RouteStopDto' used before its declaration.
+
+[7m102[0m   @ApiProperty({ description: 'Route stops', type: [RouteStopDto] })
+[7m   [0m [91m                                                    ~~~~~~~~~~~~[0m
+
+  [96msrc/routes/dto/routes.dto.ts[0m:[93m119[0m:[93m14[0m
+    [7m119[0m export class RouteStopDto {
+    [7m   [0m [96m             ~~~~~~~~~~~~[0m
+    'RouteStopDto' is declared here.
+
+[96msrc/routes/routes.controller.ts[0m:[93m131[0m:[93m38[0m - [91merror[0m[90m TS2304: [0mCannot find name 'RouteStopDto'.
+
+[7m131[0m   @ApiResponse({ status: 200, type: [RouteStopDto] })
+[7m   [0m [91m                                     ~~~~~~~~~~~~[0m
+
+[96msrc/routes/routes.controller.ts[0m:[93m156[0m:[93m25[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m156[0m     if (!van) throw new NotFoundException('Van not found');
+[7m   [0m [91m                        ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/routes/routes.service.ts[0m:[93m80[0m:[93m20[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'isActive' does not exist in type 'VanRouteWhereInput'.
+
+[7m80[0m           where: { isActive: true },
+[7m  [0m [91m                   ~~~~~~~~[0m
+
+[96msrc/routes/routes.service.ts[0m:[93m100[0m:[93m20[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'isActive' does not exist in type 'VanRouteWhereInput'.
+
+[7m100[0m           where: { isActive: true },
+[7m   [0m [91m                   ~~~~~~~~[0m
+
+[96msrc/routes/routes.service.ts[0m:[93m167[0m:[93m20[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'isActive' does not exist in type 'VanRouteWhereInput'.
+
+[7m167[0m           where: { isActive: true },
+[7m   [0m [91m                   ~~~~~~~~[0m
+
+[96msrc/routes/routes.service.ts[0m:[93m229[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ id: string; stopOrder: number; name: string; latitude: number; longitude: number; address: string | null; estimatedArrival: number | null; }[]' is not assignable to type 'RouteStopDto[]'.
+  Type '{ id: string; stopOrder: number; name: string; latitude: number; longitude: number; address: string | null; estimatedArrival: number | null; }' is not assignable to type 'RouteStopDto'.
+    Types of property 'address' are incompatible.
+      Type 'string | null' is not assignable to type 'string | undefined'.
+        Type 'null' is not assignable to type 'string | undefined'.
+
+[7m229[0m     return stops.map(stop => ({
+[7m   [0m [91m    ~~~~~~[0m
+
+[96msrc/routes/routes.service.ts[0m:[93m256[0m:[93m20[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'isActive' does not exist in type 'VanRouteWhereInput'.
+
+[7m256[0m           where: { isActive: true },
+[7m   [0m [91m                   ~~~~~~~~[0m
+
+[96msrc/routes/routes.service.ts[0m:[93m336[0m:[93m31[0m - [91merror[0m[90m TS7006: [0mParameter 'stop' implicitly has an 'any' type.
+
+[7m336[0m       stops: route.stops?.map(stop => ({
+[7m   [0m [91m                              ~~~~[0m
+
+[96msrc/schools/schools.service.ts[0m:[93m96[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'UpdateSchoolDto'.
+
+[7m96[0m     if (updateSchoolDto.code && updateSchoolDto.code !== existing.code) {
+[7m  [0m [91m                        ~~~~[0m
+
+[96msrc/schools/schools.service.ts[0m:[93m96[0m:[93m49[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'UpdateSchoolDto'.
+
+[7m96[0m     if (updateSchoolDto.code && updateSchoolDto.code !== existing.code) {
+[7m  [0m [91m                                                ~~~~[0m
+
+[96msrc/schools/schools.service.ts[0m:[93m98[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'UpdateSchoolDto'.
+
+[7m98[0m         where: { code: updateSchoolDto.code.toUpperCase() },
+[7m  [0m [91m                                       ~~~~[0m
+
+[96msrc/schools/schools.service.ts[0m:[93m101[0m:[93m74[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'UpdateSchoolDto'.
+
+[7m101[0m         throw new ConflictException(`School with code "${updateSchoolDto.code}" already exists`);
+[7m   [0m [91m                                                                         ~~~~[0m
+
+[96msrc/schools/schools.service.ts[0m:[93m109[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'code' does not exist on type 'UpdateSchoolDto'.
+
+[7m109[0m         code: updateSchoolDto.code?.toUpperCase(),
+[7m   [0m [91m                              ~~~~[0m
+
+[96msrc/seed/seed.ts[0m:[93m5[0m:[93m22[0m - [91merror[0m[90m TS2307: [0mCannot find module 'mongoose' or its corresponding type declarations.
+
+[7m5[0m import mongoose from 'mongoose';
+[7m [0m [91m                     ~~~~~~~~~~[0m
+
+[96msrc/seed/seed.ts[0m:[93m6[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module 'bcrypt' or its corresponding type declarations.
+
+[7m6[0m import bcrypt from 'bcrypt';
+[7m [0m [91m                   ~~~~~~~~[0m
+
+[96msrc/services/email.service.ts[0m:[93m5[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module 'nodemailer' or its corresponding type declarations.
+
+[7m5[0m import nodemailer from 'nodemailer';
+[7m [0m [91m                       ~~~~~~~~~~~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m1[0m:[93m59[0m - [91merror[0m[90m TS7016: [0mCould not find a declaration file for module 'multer'. '/home/rushank/backend/node_modules/multer/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/multer` if it exists or add a new declaration (.d.ts) file containing `declare module 'multer';`
+
+[7m1[0m import multer, { StorageEngine, FileFilterCallback } from 'multer';
+[7m [0m [91m                                                          ~~~~~~~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m19[0m:[93m19[0m - [91merror[0m[90m TS7006: [0mParameter '_req' implicitly has an 'any' type.
+
+[7m19[0m     destination: (_req, _file, cb) => {
+[7m  [0m [91m                  ~~~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m19[0m:[93m25[0m - [91merror[0m[90m TS7006: [0mParameter '_file' implicitly has an 'any' type.
+
+[7m19[0m     destination: (_req, _file, cb) => {
+[7m  [0m [91m                        ~~~~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m19[0m:[93m32[0m - [91merror[0m[90m TS7006: [0mParameter 'cb' implicitly has an 'any' type.
+
+[7m19[0m     destination: (_req, _file, cb) => {
+[7m  [0m [91m                               ~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m22[0m:[93m16[0m - [91merror[0m[90m TS7006: [0mParameter '_req' implicitly has an 'any' type.
+
+[7m22[0m     filename: (_req, file, cb) => {
+[7m  [0m [91m               ~~~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m22[0m:[93m22[0m - [91merror[0m[90m TS7006: [0mParameter 'file' implicitly has an 'any' type.
+
+[7m22[0m     filename: (_req, file, cb) => {
+[7m  [0m [91m                     ~~~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m22[0m:[93m28[0m - [91merror[0m[90m TS7006: [0mParameter 'cb' implicitly has an 'any' type.
+
+[7m22[0m     filename: (_req, file, cb) => {
+[7m  [0m [91m                           ~~[0m
+
+[96msrc/services/storage.service.ts[0m:[93m32[0m:[93m17[0m - [91merror[0m[90m TS2694: [0mNamespace 'global.Express' has no exported member 'Multer'.
+
+[7m32[0m   file: Express.Multer.File,
+[7m  [0m [91m                ~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m9[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m9[0m   @MinLength(1)
+[7m [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m10[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m10[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m15[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m15[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m16[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m16[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m63[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m63[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m64[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m64[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m70[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m70[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m71[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m71[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m151[0m:[93m52[0m - [91merror[0m[90m TS2449: [0mClass 'ParentDto' used before its declaration.
+
+[7m151[0m   @ApiProperty({ description: 'Parent user', type: ParentDto })
+[7m   [0m [91m                                                   ~~~~~~~~~[0m
+
+  [96msrc/students/dto/students.dto.ts[0m:[93m173[0m:[93m14[0m
+    [7m173[0m export class ParentDto {
+    [7m   [0m [96m             ~~~~~~~~~[0m
+    'ParentDto' is declared here.
+
+[96msrc/students/dto/students.dto.ts[0m:[93m152[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m152[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/students/dto/students.dto.ts[0m:[93m155[0m:[93m61[0m - [91merror[0m[90m TS2449: [0mClass 'VanDto' used before its declaration.
+
+[7m155[0m   @ApiPropertyOptional({ description: 'Assigned van', type: VanDto })
+[7m   [0m [91m                                                            ~~~~~~[0m
+
+  [96msrc/students/dto/students.dto.ts[0m:[93m192[0m:[93m14[0m
+    [7m192[0m export class VanDto {
+    [7m   [0m [96m             ~~~~~~[0m
+    'VanDto' is declared here.
+
+[96msrc/students/dto/students.dto.ts[0m:[93m157[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m157[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/students/students.controller.ts[0m:[93m159[0m:[93m28[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m159[0m     if (!parent) throw new NotFoundException('Parent not found');
+[7m   [0m [91m                           ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/students/students.controller.ts[0m:[93m189[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m189[0m       throw new NotFoundException('Student has no assigned van');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/students/students.controller.ts[0m:[93m214[0m:[93m25[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m214[0m     if (!van) throw new NotFoundException('Van not found');
+[7m   [0m [91m                        ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m40[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Min'.
+
+[7m40[0m   @Min(1)
+[7m  [0m [91m   ~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m43[0m:[93m75[0m - [91merror[0m[90m TS2449: [0mClass 'StartEndLocationDto' used before its declaration.
+
+[7m43[0m   @ApiPropertyOptional({ description: 'Start location coordinates', type: StartEndLocationDto })
+[7m  [0m [91m                                                                          ~~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/trips/dto/trips.dto.ts[0m:[93m59[0m:[93m14[0m
+    [7m59[0m export class StartEndLocationDto {
+    [7m  [0m [96m             ~~~~~~~~~~~~~~~~~~~[0m
+    'StartEndLocationDto' is declared here.
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m45[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m45[0m   @IsObject()
+[7m  [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m48[0m:[93m73[0m - [91merror[0m[90m TS2449: [0mClass 'StartEndLocationDto' used before its declaration.
+
+[7m48[0m   @ApiPropertyOptional({ description: 'End location coordinates', type: StartEndLocationDto })
+[7m  [0m [91m                                                                        ~~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/trips/dto/trips.dto.ts[0m:[93m59[0m:[93m14[0m
+    [7m59[0m export class StartEndLocationDto {
+    [7m  [0m [96m             ~~~~~~~~~~~~~~~~~~~[0m
+    'StartEndLocationDto' is declared here.
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m50[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m50[0m   @IsObject()
+[7m  [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m75[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m75[0m   @IsObject()
+[7m  [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m85[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m85[0m   @IsObject()
+[7m  [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m106[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Min'.
+
+[7m106[0m   @Min(0)
+[7m   [0m [91m   ~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m107[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Max'.
+
+[7m107[0m   @Max(300)
+[7m   [0m [91m   ~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m113[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Min'.
+
+[7m113[0m   @Min(0)
+[7m   [0m [91m   ~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m114[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Max'.
+
+[7m114[0m   @Max(360)
+[7m   [0m [91m   ~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m120[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Min'.
+
+[7m120[0m   @Min(0)
+[7m   [0m [91m   ~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m134[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m134[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m181[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m181[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m252[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m252[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m257[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m257[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m361[0m:[93m60[0m - [91merror[0m[90m TS2449: [0mClass 'VanInfoDto' used before its declaration.
+
+[7m361[0m   @ApiPropertyOptional({ description: 'Van details', type: VanInfoDto })
+[7m   [0m [91m                                                           ~~~~~~~~~~[0m
+
+  [96msrc/trips/dto/trips.dto.ts[0m:[93m387[0m:[93m14[0m
+    [7m387[0m export class VanInfoDto {
+    [7m   [0m [96m             ~~~~~~~~~~[0m
+    'VanInfoDto' is declared here.
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m363[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m363[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m366[0m:[93m63[0m - [91merror[0m[90m TS2449: [0mClass 'DriverInfoDto' used before its declaration.
+
+[7m366[0m   @ApiPropertyOptional({ description: 'Driver details', type: DriverInfoDto })
+[7m   [0m [91m                                                              ~~~~~~~~~~~~~[0m
+
+  [96msrc/trips/dto/trips.dto.ts[0m:[93m401[0m:[93m14[0m
+    [7m401[0m export class DriverInfoDto {
+    [7m   [0m [96m             ~~~~~~~~~~~~~[0m
+    'DriverInfoDto' is declared here.
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m368[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m368[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m371[0m:[93m62[0m - [91merror[0m[90m TS2449: [0mClass 'RouteInfoDto' used before its declaration.
+
+[7m371[0m   @ApiPropertyOptional({ description: 'Route details', type: RouteInfoDto })
+[7m   [0m [91m                                                             ~~~~~~~~~~~~[0m
+
+  [96msrc/trips/dto/trips.dto.ts[0m:[93m420[0m:[93m14[0m
+    [7m420[0m export class RouteInfoDto {
+    [7m   [0m [96m             ~~~~~~~~~~~~[0m
+    'RouteInfoDto' is declared here.
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m373[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m373[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m383[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m383[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m457[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m457[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/dto/trips.dto.ts[0m:[93m467[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'IsObject'.
+
+[7m467[0m   @IsObject()
+[7m   [0m [91m   ~~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m116[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ latitude: number; longitude: number; speed: number | null; heading: number | null; accuracy: number | null; recordedAt: Date; }[]' is not assignable to type '{ latitude: number; longitude: number; speed?: number | undefined; heading?: number | undefined; accuracy?: number | undefined; recordedAt: Date; }[]'.
+  Type '{ latitude: number; longitude: number; speed: number | null; heading: number | null; accuracy: number | null; recordedAt: Date; }' is not assignable to type '{ latitude: number; longitude: number; speed?: number | undefined; heading?: number | undefined; accuracy?: number | undefined; recordedAt: Date; }'.
+    Types of property 'speed' are incompatible.
+      Type 'number | null' is not assignable to type 'number | undefined'.
+        Type 'null' is not assignable to type 'number | undefined'.
+
+[7m116[0m     return locations;
+[7m   [0m [91m    ~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m161[0m:[93m19[0m - [91merror[0m[90m TS18047: [0m'vehicle' is possibly 'null'.
+
+[7m161[0m         latitude: vehicle.currentLatitude,
+[7m   [0m [91m                  ~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m162[0m:[93m20[0m - [91merror[0m[90m TS18047: [0m'vehicle' is possibly 'null'.
+
+[7m162[0m         longitude: vehicle.currentLongitude,
+[7m   [0m [91m                   ~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m163[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'number | null' is not assignable to type 'number | undefined'.
+  Type 'null' is not assignable to type 'number | undefined'.
+
+[7m163[0m         speed: vehicle.currentSpeed,
+[7m   [0m [91m        ~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m163[0m:[93m16[0m - [91merror[0m[90m TS18047: [0m'vehicle' is possibly 'null'.
+
+[7m163[0m         speed: vehicle.currentSpeed,
+[7m   [0m [91m               ~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m164[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'number | null' is not assignable to type 'number | undefined'.
+  Type 'null' is not assignable to type 'number | undefined'.
+
+[7m164[0m         heading: vehicle.currentHeading,
+[7m   [0m [91m        ~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m164[0m:[93m18[0m - [91merror[0m[90m TS18047: [0m'vehicle' is possibly 'null'.
+
+[7m164[0m         heading: vehicle.currentHeading,
+[7m   [0m [91m                 ~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m166[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType 'Date | null' is not assignable to type 'Date | undefined'.
+  Type 'null' is not assignable to type 'Date | undefined'.
+
+[7m166[0m         updatedAt: vehicle.lastGpsUpdate,
+[7m   [0m [91m        ~~~~~~~~~[0m
+
+[96msrc/trips/trip-location.service.ts[0m:[93m166[0m:[93m20[0m - [91merror[0m[90m TS18047: [0m'vehicle' is possibly 'null'.
+
+[7m166[0m         updatedAt: vehicle.lastGpsUpdate,
+[7m   [0m [91m                   ~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m58[0m:[93m76[0m - [91merror[0m[90m TS2339: [0mProperty 'driverId' does not exist on type 'CreateTripDto'.
+
+[7m58[0m     return this.tripsService.create(schoolId, createTripDto, createTripDto.driverId);
+[7m  [0m [91m                                                                           ~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m128[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m128[0m       throw new NotFoundException(`Student has no assigned van`);
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m133[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m133[0m       throw new NotFoundException(`Van location not available`);
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m159[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'ForbiddenException'.
+
+[7m159[0m       throw new ForbiddenException(`You are not assigned to this van`);
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m200[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m200[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m216[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m216[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m234[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m234[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m237[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m237[0m       throw new BadRequestException('Student ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m255[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m255[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m258[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m258[0m       throw new BadRequestException('Student ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m276[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m276[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m279[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m279[0m       throw new BadRequestException('Student ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m295[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m295[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.controller.ts[0m:[93m311[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BadRequestException'.
+
+[7m311[0m       throw new BadRequestException('Trip ID mismatch');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/trips/trips.service.ts[0m:[93m213[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType '{ latitude: number; longitude: number; speed?: number | undefined; heading?: number | undefined; accuracy?: number | undefined; schoolId?: string | undefined; updatedAt?: number | undefined; } | null' is not assignable to type 'TripLocationDto | undefined'.
+  Type 'null' is not assignable to type 'TripLocationDto | undefined'.
+
+[7m213[0m       latestLocation,
+[7m   [0m [91m      ~~~~~~~~~~~~~~[0m
+
+  [96msrc/trips/dto/trips.dto.ts[0m:[93m384[0m:[93m3[0m
+    [7m384[0m   latestLocation?: TripLocationDto;
+    [7m   [0m [96m  ~~~~~~~~~~~~~~[0m
+    The expected type comes from property 'latestLocation' which is declared here on type 'TripWithDetailsDto'
+
+[96msrc/trips/trips.service.ts[0m:[93m720[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ tripId: string; vanId: string; location: TripLocationDto | undefined; }' is not assignable to type 'NullableJsonNullValueInput | InputJsonValue | undefined'.
+  Types of property 'location' are incompatible.
+    Type 'TripLocationDto | undefined' is not assignable to type 'InputJsonValue | null | undefined'.
+      Type 'TripLocationDto' is not assignable to type 'InputJsonValue | null | undefined'.
+        Type 'TripLocationDto' is not assignable to type 'InputJsonObject'.
+          Index signature for type 'string' is missing in type 'TripLocationDto'.
+
+[7m720[0m         data: {
+[7m   [0m [91m        ~~~~[0m
+
+  [96msrc/generated/prisma/index.d.ts[0m:[93m19814[0m:[93m5[0m
+    [7m19814[0m     data?: NullableJsonNullValueInput | InputJsonValue
+    [7m     [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '(Without<AlertCreateInput, AlertUncheckedCreateInput> & AlertUncheckedCreateInput) | (Without<...> & AlertCreateInput)'
+
+[96msrc/utils/jwt.ts[0m:[93m15[0m:[93m49[0m - [91merror[0m[90m TS2344: [0mType '"role" | "email" | "id"' does not satisfy the constraint 'keyof IUser'.
+  Type '"id"' is not assignable to type 'keyof IUser'.
+
+[7m15[0m export const generateToken = (user: Pick<IUser, 'id' | 'email' | 'role'>): string => {
+[7m  [0m [91m                                                ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/validators/index.ts[0m:[93m1[0m:[93m19[0m - [91merror[0m[90m TS2307: [0mCannot find module 'zod' or its corresponding type declarations.
+
+[7m1[0m import { z } from 'zod';
+[7m [0m [91m                  ~~~~~[0m
+
+[96msrc/validators/index.ts[0m:[93m197[0m:[93m36[0m - [91merror[0m[90m TS7006: [0mParameter 'err' implicitly has an 'any' type.
+
+[7m197[0m       result.error.errors.forEach((err) => {
+[7m   [0m [91m                                   ~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m9[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m9[0m   @MinLength(1)
+[7m [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m10[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m10[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m15[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m15[0m   @MinLength(2)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m16[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m16[0m   @MaxLength(20)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m63[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MinLength'.
+
+[7m63[0m   @MinLength(1)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m64[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'MaxLength'.
+
+[7m64[0m   @MaxLength(100)
+[7m  [0m [91m   ~~~~~~~~~[0m
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m154[0m:[93m55[0m - [91merror[0m[90m TS2449: [0mClass 'UserDto' used before its declaration.
+
+[7m154[0m   @ApiPropertyOptional({ description: 'Driver', type: UserDto })
+[7m   [0m [91m                                                      ~~~~~~~[0m
+
+  [96msrc/vans/dto/vans.dto.ts[0m:[93m238[0m:[93m14[0m
+    [7m238[0m export class UserDto {
+    [7m   [0m [96m             ~~~~~~~[0m
+    'UserDto' is declared here.
+
+[96msrc/vans/dto/vans.dto.ts[0m:[93m158[0m:[93m65[0m - [91merror[0m[90m TS2449: [0mClass 'RouteDto' used before its declaration.
+
+[7m158[0m   @ApiPropertyOptional({ description: 'Assigned routes', type: [RouteDto] })
+[7m   [0m [91m                                                                ~~~~~~~~[0m
+
+  [96msrc/vans/dto/vans.dto.ts[0m:[93m260[0m:[93m14[0m
+    [7m260[0m export class RouteDto {
+    [7m   [0m [96m             ~~~~~~~~[0m
+    'RouteDto' is declared here.
+
+[96msrc/vans/vans.controller.ts[0m:[93m200[0m:[93m17[0m - [91merror[0m[90m TS2304: [0mCannot find name 'NotFoundException'.
+
+[7m200[0m       throw new NotFoundException('Student or van not found');
+[7m   [0m [91m                ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m73[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'routes' does not exist in type 'VanInclude<DefaultArgs>'.
+
+[7m73[0m         routes: {
+[7m  [0m [91m        ~~~~~~[0m
+
+  [96msrc/generated/prisma/index.d.ts[0m:[93m5755[0m:[93m5[0m
+    [7m5755[0m     include?: VanInclude<ExtArgs> | null
+    [7m    [0m [96m    ~~~~~~~[0m
+    The expected type comes from property 'include' which is declared here on type '{ select?: VanSelect<DefaultArgs> | null | undefined; include?: VanInclude<DefaultArgs> | null | undefined; data: (Without<VanCreateInput, VanUncheckedCreateInput> & VanUncheckedCreateInput) | (Without<...> & VanCreateInput); }'
+
+[96msrc/vans/vans.service.ts[0m:[93m137[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'routes' does not exist in type 'VanInclude<DefaultArgs>'.
+
+[7m137[0m         routes: {
+[7m   [0m [91m        ~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m177[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'routes' does not exist in type 'VanInclude<DefaultArgs>'.
+
+[7m177[0m         routes: {
+[7m   [0m [91m        ~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m219[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ id: string; schoolId: string; name: string; plateNumber: string; capacity: number; make: string | null; model: string | null; year: number | null; color: string | null; isActive: boolean; ... 6 more ...; updatedAt: string; }[]' is not assignable to type 'VanDto[]'.
+  Type '{ id: string; schoolId: string; name: string; plateNumber: string; capacity: number; make: string | null; model: string | null; year: number | null; color: string | null; isActive: boolean; ... 6 more ...; updatedAt: string; }' is not assignable to type 'VanDto'.
+    Types of property 'make' are incompatible.
+      Type 'string | null' is not assignable to type 'string | undefined'.
+        Type 'null' is not assignable to type 'string | undefined'.
+
+[7m219[0m     return vans.map(van => {
+[7m   [0m [91m    ~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m258[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'plateNumber' does not exist on type 'UpdateVanDto'.
+
+[7m258[0m     if (updateVanDto.plateNumber && updateVanDto.plateNumber !== existing.plateNumber) {
+[7m   [0m [91m                     ~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m258[0m:[93m50[0m - [91merror[0m[90m TS2339: [0mProperty 'plateNumber' does not exist on type 'UpdateVanDto'.
+
+[7m258[0m     if (updateVanDto.plateNumber && updateVanDto.plateNumber !== existing.plateNumber) {
+[7m   [0m [91m                                                 ~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m262[0m:[93m37[0m - [91merror[0m[90m TS2339: [0mProperty 'plateNumber' does not exist on type 'UpdateVanDto'.
+
+[7m262[0m           plateNumber: updateVanDto.plateNumber.toUpperCase(),
+[7m   [0m [91m                                    ~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m269[0m:[93m76[0m - [91merror[0m[90m TS2339: [0mProperty 'plateNumber' does not exist on type 'UpdateVanDto'.
+
+[7m269[0m         throw new ConflictException(`Van with plate number "${updateVanDto.plateNumber}" already exists`);
+[7m   [0m [91m                                                                           ~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m309[0m:[93m35[0m - [91merror[0m[90m TS2339: [0mProperty 'plateNumber' does not exist on type 'UpdateVanDto'.
+
+[7m309[0m         plateNumber: updateVanDto.plateNumber?.toUpperCase(),
+[7m   [0m [91m                                  ~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m329[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'routes' does not exist in type 'VanInclude<DefaultArgs>'.
+
+[7m329[0m         routes: {
+[7m   [0m [91m        ~~~~~~[0m
+
+  [96msrc/generated/prisma/index.d.ts[0m:[93m5803[0m:[93m5[0m
+    [7m5803[0m     include?: VanInclude<ExtArgs> | null
+    [7m    [0m [96m    ~~~~~~~[0m
+    The expected type comes from property 'include' which is declared here on type '{ select?: VanSelect<DefaultArgs> | null | undefined; include?: VanInclude<DefaultArgs> | null | undefined; data: (Without<VanUpdateInput, VanUncheckedUpdateInput> & VanUncheckedUpdateInput) | (Without<...> & VanUpdateInput); where: VanWhereUniqueInput; }'
+
+[96msrc/vans/vans.service.ts[0m:[93m537[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+
+[7m537[0m       make: van.make,
+[7m   [0m [91m      ~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m538[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+
+[7m538[0m       model: van.model,
+[7m   [0m [91m      ~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m539[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'number | null' is not assignable to type 'number | undefined'.
+  Type 'null' is not assignable to type 'number | undefined'.
+
+[7m539[0m       year: van.year,
+[7m   [0m [91m      ~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m540[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+
+[7m540[0m       color: van.color,
+[7m   [0m [91m      ~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m547[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+
+[7m547[0m       lastGpsUpdate: gps?.updatedAt ? new Date(gps.updatedAt).toISOString() : null,
+[7m   [0m [91m      ~~~~~~~~~~~~~[0m
+
+[96msrc/vans/vans.service.ts[0m:[93m571[0m:[93m31[0m - [91merror[0m[90m TS7006: [0mParameter 'r' implicitly has an 'any' type.
+
+[7m571[0m       routes: van.routes?.map(r => ({
+[7m   [0m [91m                              ~[0m
+
+[96msrc/websocket/services/websocket.service.ts[0m:[93m4[0m:[93m30[0m - [91merror[0m[90m TS2307: [0mCannot find module '../common/logging/logger' or its corresponding type declarations.
+
+[7m4[0m import { createLogger } from '../common/logging/logger';
+[7m [0m [91m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m7:44:53 AM[0m] Found 271 errors. Watching for file changes.
+
